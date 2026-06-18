@@ -22,6 +22,19 @@ const products = [
   { name: "Backpack", quantity: 12, zone: "G4" },
 ];
 
+function findIfProductsAvailable(products ,targetProduct,targetQuantity){
+    for (let i=0;i< products.length;i++){
+        if(products[i].name === targetProduct){
+            if(products[i].quantity>targetQuantity){
+                return `${targetQuantity} ${targetProduct}(s) are available at Zone ${products[i].zone}`
+            }else{
+                return `Sorry, we've got only ${products[i].quantity} ${targetProduct}(s) available at Zone ${products[i].zone}`
+            }
+        }
+    }
+    return `We don't have ${targetProduct}`
+}
+
 console.log(findIfProductsAvailable(products, "Chocolate Milk", 3));
 // 3 Chocolate Milk(s) are available at Zone A1
 
